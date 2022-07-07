@@ -1,8 +1,6 @@
 # Docker container that retrieves your external IP address via DIG
 Gets external IP via DIG command ( opendns , cloudflare, google ) on a scheduled basis that can be customized. Also includes the ability to alert you via pushover if the IP changes.
 
-If the docker container 
-
 ---
 
 ## **Docker**
