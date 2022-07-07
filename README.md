@@ -1,6 +1,31 @@
 # Docker container that retrieves your external IP address via DIG
 Gets external IP via DIG command ( opendns , cloudflare, google ) on a scheduled basis that can be customized. Also includes the ability to alert you via pushover if the IP changes.
 
+Example 
+```
+Starting...
+Setting sleep delay...
+IP: 00.00.00.00 [CHANGE]
+
+Sending pushover message...
+{"status":1,"request":"gfdgdf-gdfg-gdfgd-dfgd-fgdfgd"}
+
+IP: 00.00.00.00
+dig: couldn't get address for 'ns1.google.com': not found
+
+[Error or Invalid IP address]
+dig: couldn't get address for 'ns1.google.com': not found
+
+[Error or Invalid IP address]
+IP: 00.00.00.00 [RECOVERY]
+IP: 00.00.00.00
+IP: 00.00.00.01 [CHANGE]
+
+Sending pushover message...
+{"status":1,"request":"gfdgdf-gdfg-gdfgd-dfgd-fgdfgd"}
+
+IP: 00.00.00.01
+```
 ---
 
 ## **Docker**
