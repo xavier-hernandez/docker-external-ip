@@ -1,6 +1,6 @@
 #!/bin/bash
 source $(dirname "$0")/lib/ipv4.sh
-source $(dirname "$0")/lib/pushover.sh
+source $(dirname "$0")/lib/notify.sh
 
 old_ip=0
 recovery=0
@@ -44,11 +44,11 @@ do
                 echo -e "IP: ${ip} ${recoveryAlert}"
                 if [[ ${RECOVERY_ALERT} == "True" ]]
                 then
-                    pushover "IP: ${ip} ${recoveryAlert}"
+                    notify "IP: ${ip} ${recoveryAlert}"
                 fi
             else
                 echo -e "IP: ${ip} ${changeAlert}"
-                pushover "IP: ${ip} ${changeAlert}"
+                notify "IP: ${ip} ${changeAlert}"
             fi
         else
             echo -e "IP: ${ip}"
