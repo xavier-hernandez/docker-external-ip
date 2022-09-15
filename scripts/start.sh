@@ -23,7 +23,7 @@ fi
 # load IP if saved
 if [[ "${SAVE_IP}" == "True" ]]; then
     if [[ -f "$savedIPFile" ]]; then
-        while read line; do echo $old_ip; done < ${savedIPFile}
+        old_ip=$( cat ${savedIPFile} | tr -d " \t\n\r" )
     else
         touch ${savedIPFile}
     fi
