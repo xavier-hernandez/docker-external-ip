@@ -9,6 +9,8 @@ regex="([[:digit:]]+$)|([[:digit:]]+d$)|([[:digit:]]+s$)|([[:digit:]]+m$)|([[:di
 recoveryAlert="[RECOVERY]"
 changeAlert="[CHANGE]"
 
+savedIPFile="/stor-external-ip/ip.saved"
+
 echo -e "Starting..."
 if [[ ${DELAY} =~ ${regex} ]]
 then
@@ -16,6 +18,18 @@ then
     sleep=${DELAY}
 else
     echo -e "Bad parameter for DELAY, using default ${sleep}..."
+fi
+
+# load IP if saved
+if [[ "${SAVEIP}" == "True" ]]; then
+    if [[ -f "$savedIPFile" ]]; then
+        while read line; do echo $old_ip; done < ${savedIPFile}
+    else
+        touch ${savedIPFile}
+    fi
+    if ! valid_ipv4 ${old_ip}; then
+        echo -e "\n[Invalid Saved IP address]"
+    fi
 fi
 
 while :
@@ -52,6 +66,11 @@ do
             fi
         else
             echo -e "IP: ${ip}"
+        fi
+
+        #save ip
+        if [[ "${SAVEIP}" == "True" ]]; then
+            echo ${ip} > ${savedIPFile}
         fi
         recovery=0
     else    

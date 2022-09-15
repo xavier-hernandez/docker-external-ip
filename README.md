@@ -57,6 +57,9 @@ external_ip:
         - PUSHOVER_TOKEN=token #optional
         - PUSHOVER_USER=user #optional
         - PUSHOVER_TITLE=title #optional, if using PUSHOVER
+        - SAVE_IP=True #optional
+    volume:
+        - /path/to/data:/stor-external-ip #optional but required if using SAVE_IP
 ```
 **APPRISE Example**
 ```yml
