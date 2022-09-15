@@ -21,7 +21,7 @@ else
 fi
 
 # load IP if saved
-if [[ "${SAVEIP}" == "True" ]]; then
+if [[ "${SAVE_IP}" == "True" ]]; then
     if [[ -f "$savedIPFile" ]]; then
         while read line; do echo $old_ip; done < ${savedIPFile}
     else
@@ -69,7 +69,7 @@ do
         fi
 
         #save ip
-        if [[ "${SAVEIP}" == "True" ]]; then
+        if [[ "${SAVE_IP}" == "True" ]]; then
             echo ${ip} > ${savedIPFile}
         fi
         recovery=0
