@@ -21,7 +21,7 @@ else
 fi
 
 # load IP if saved
-if [[ "${SAVE_IP}" == "True" ]]; then
+if [[ "${SAVE_IP^^}" == "TRUE" ]]; then
     if [[ -f "$savedIPFile" ]]; then
         old_ip=$( cat ${savedIPFile} | tr -d " \t\n\r" )
     else
