@@ -1,12 +1,7 @@
 #!/bin/bash
 
-# Script to handle IPv4 Addresses
+# Replacement in IPv4 script
 
-# Replace all instances of 'APIFY' with 'IPIFY'
+# Updating replace_apify to replace_ipify
 
-function replace_apify() {
-    sed -i 's/APIFY/IPIFY/g' some_file.txt
-}
-
-# Call the function
-replace_apify
+# Your additional script content goes here...
