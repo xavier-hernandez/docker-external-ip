@@ -1,5 +1,5 @@
-# Docker container that retrieves your external IP address via DIG with optional pushover alert and Apprise support
-Gets external IP via DIG command ( opendns , cloudflare, google ) on a scheduled basis that can be customized. Also includes the ability to alert you via pushover if the IP changes.
+# Docker container that retrieves your external IP address via DIG/curl with optional pushover alert and Apprise support
+Gets external IP via DIG command ( opendns , cloudflare, google ) or via curl ( ipify ) on a scheduled basis that can be customized. Also includes the ability to alert you via pushover if the IP changes.
 
 Example from docker logs
 ```
@@ -85,7 +85,7 @@ external_ip:
 |-----------|----------|
 | `-e RECOVERY_ALERT=True/False`         |   (Optional) Used when NOTIFICATION_TYPE is set.<br><br> If the docker container cannot connect to the internet or retrieve an IP address a flag is set. Once the connection has been re-established or an IP address is retrieved a notification will be sent and the flag cleared. The IP address might be the same or different. If you do not wish to receive a notification when retrieving an IP fails mark it as FALSE. <br><br> Options: True, False    |
 | `-e DELAY=5m`         |   (Optional) Using standard sleep command. <br><br> Options: X (X seconds), Xm (X minutes), Xh (5 hours), and Xd (days)     |
-| `-e PROVIDER=CLOUDFLARE`         |   (Optional)<br><br>Options: CLOUDFLARE, GOOGLE, OPENDNS     |
+| `-e PROVIDER=CLOUDFLARE`         |   (Optional)<br><br>Options: CLOUDFLARE, GOOGLE, OPENDNS, IPIFY (uses `curl -s -k https://api.ipify.org`)     |
 | `-e NOTIFICATION_TYPE=PUSHOVER`         |   (Optional)<br><br>Options: PUSHOVER,APPRISE   |
 | `-e PUSHOVER_TOKEN=`         |   (Required if NOTIFICATION_TYPE is set)   |
 | `-e PUSHOVER_USER=`         |   (Required if NOTIFICATION_TYPE is set)    |

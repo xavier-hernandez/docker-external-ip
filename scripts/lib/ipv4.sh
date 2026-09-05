@@ -38,3 +38,10 @@ function opendns_ipv4()
     ip=$(dig +short myip.opendns.com @resolver1.opendns.com | tr -d '"')
     echo $ip
 }
+
+function ipify_ipv4()
+{
+    local ip=""
+    ip=$(curl -s -k https://api.ipify.org | tr -d '"')
+    echo $ip
+}
